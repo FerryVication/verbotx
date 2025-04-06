@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tata Cara Pendaftaran</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style> 
+    :root {
+      --primary: #4a90e2;
+      --bg: #f9f9f9;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+/* Header */
+.header {
+    display: flex;
+    height: 45px;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(3px);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan agar lebih menonjol */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Tambahkan border agar terlihat lebih jelas */
+    max-width: 900px;
+    margin: 1px 10px;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-size: 1.4em;
+    font-weight: bold;
+    background: linear-gradient(to right, #2196f3, #e665f6, #64b5f6);
+    background-size: 500%; /* Ukuran lebih besar agar animasi terlihat */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s ease-in infinite;
+}
+
+.header strong {
+    font-size: 1em;
+    font-family: monospace;
+}
+
+.header svg {
+  height: 20px;
+  width: 20px;
+}
+
+.header a {
+    background: #3b82f6;
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 5px 6px; /* Kurangi padding agar tidak terlalu besar */
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex; /* Agar ikon tidak menambah tinggi tombol */
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+    .step-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 50px;
+    }
+
+    .step {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .step img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 10px;
+    }
+
+    .step-text {
+      text-align: start;
+      padding: 20px;
+    }
+
+    .step-text h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .step-text p {
+      font-size: 1em;
+      color: #444;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq h2 {
+      font-size: 1.3em;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background-color: #f0f0f0;
+    }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  color: #555;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.active .faq-answer {
+  padding: 15px 20px;
+  max-height: 300px; /* cukup besar untuk tampung teks FAQ */
+}
+
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .icon {
+      transform: rotate(180deg);
+    }
+
+    .icon {
+      transition: transform 0.3s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .step {
+        flex-direction: column !important;
+      }
+
+      .step-text {
+        text-align: center;
+      }
+    }
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+  </style>
+</head>
+<body>    <!-- Header -->    
+    <div class="header">
+      <h1>VerBotX</h1>
+      <a href="/dash" id="themeToggle"><i data-feather="smile" ></i></a>
+    </div>
+
+  <div class="step-container">
+    <!-- Step 1 -->
+    <div class="step">
+      <img src="assets/step1.png" alt="Langkah 1">
+      <div class="step-text">
+        <h2>Langkah 1:</h2>
+        <p>ketika kamu menghubungi VerBotX untuk pertama kalinya, pasti kamu akan mendapatkan pesan demikian.</p>
+        <p>jangan khawatir, hal ini wajar karena kamu belum mempunyai akun VerBotX, untuk membuat akun VerBotX lihat pada langkah selanjutnya..</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <img src="assets/step2.png" alt="Langkah 2">
+      <div class="step-text">
+        <h2>Langkah 2:</h2>
+        <p>gunakan command atau perintah <strong>.daftar</strong> untuk melakukan pendaftaran akun VerBotX dengan contoh seperti ini :</p> <br>
+        <strong>.daftar email|nama|umur</strong><br/> <br/>
+        <p>keterangan :</p>
+        <ol>
+          <li><strong>.daftar</strong> => command / perintah untuk melakukan pendaftaran</li>
+          <li><strong>email</strong> => diisi dengan email kamu yang masih aktif untuk menerima kode OTP</li>
+          <li><strong>nama</strong> => diisi dengan nama kamu</li>
+          <li><strong>umur</strong> => diisi dengan umur kamu</li>
+        </ol> <br>
+        <p>sehingga akan menjadi contoh seperti ini : </p>
+        <i>.daftar verbotx@gmail.com|verbotx|20</i>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <img src="assets/step3.png" alt="Langkah 3">
+      <div class="step-text">
+        <h2>Langkah 3: Verifikasi Email</h2>
+        <p>setelah kamu melakukan langkah diatas, kami akan mengirim verifikasi seperti ini, kamu tinggal tekan tombol <strong>"Verifikasi Sekarang"</strong> untuk melakukan verifikasi pendaftaran akun VerBotX kamu</p>
+        <p>setalah kamu menekan tombol tersebut, kamu akan langsung diarahkan ke WhatsApp VerBotX untuk mengirim kode OTP, langsung kamu kirim saja tanpa merubah apapun</p>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <img src="assets/step4.png" alt="Langkah 4">
+      <div class="step-text">
+        <h2>Langkah 4: Penting! Jika kode OTP Tidak Masuk</h2>
+        <p>Pastikan email yang kamu gunakan masih aktif ya..</p>
+        <p>jika email yang kamu gunakan aktif tetapi kode OTP tetap tidak masuk, silahkan kamu cek folder spam yang ada di gmail kamu...</p>
+      </div>
+    </div>
+    <!-- Step 5 -->
+    <div class="step">
+      <img src="assets/step5.png" alt="Langkah 5">
+      <div class="step-text">
+        <h2>Langkah 5: Selesai!</h2>
+        <p>setelah kamu menerima kode OTP dan menekan tombol Verifikasi, kamu akan diarahkan langsung ke WhatsApp VerBotX untuk verifikasi akun kamu, dan jika sudah sampai titik ini maka pendaftaran kamu selesai kamu siap untuk menggunakan layanan VerBotX.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq">
+    <h2>FAQ ( Pertanyaan yang sering diajukan )</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Apakah ini aman ?</span>
+        <i data-feather="chevron-down" class="icon"></i>
+      </div>
+      <div class="faq-answer">
+        Ya, ini sangat aman karena email yang kamu pakai itu hanya digunakan untuk mengirim kode OTP.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Kenapa Harus Pakai Email ?</span>
+        <i data-feather="chevron-down" class="icon"></i>
+      </div>
+      <div class="faq-answer">
+        iya karena kami menggunakan email untuk mengirimkan kode OTP
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Kok Kode OTP nya tidak masuk ?</span>
+        <i data-feather="chevron-down" class="icon"></i>
+      </div>
+      <div class="faq-answer">
+        pastikan email yang kamu gunakan itu email yang benar dan masih aktif ya... jika email sudah benar namun kode OTP tetap tidak masuk, silahkan kamu cek folder spam pada gmail kamu...
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 VerBotX. All rights reserved.
+  </footer>
+
+  <script>
+    // Animasi scroll
+    const steps = document.querySelectorAll('.step');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    steps.forEach(step => {
+      observer.observe(step);
+    });
+// FAQ toggle with animation
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Tutup semua dulu (jika ingin FAQ hanya satu terbuka)
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+    });
+
+    // Buka jika sebelumnya belum aktif
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+    feather.replace();
+  </script>
+</body>
+</html>
